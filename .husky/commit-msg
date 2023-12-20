@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+if ! grep -qE "^(feat|fix|docs|typos|style|refactor|test|chore|build|ci|locale)(\(.+\))?: [A-Z].+" "$1"; then
+    echo "Proper commit message format is required for automated changelog generation. "
+    echo "    [<emoji>] <type>[(scope)?]: <message>"
+    echo "    [optional body]"
+    echo "    [optional footer(s)]\n"
+    echo "Examples:"
+    echo "    💥 feat(compiler): add 'comments' option"
+    echo "    🐛 fix(compiler): fix some bug"
+    echo "    📝 docs(compiler): add some docs"
+    echo "Other commit types: refactor, build, ci, typos, style, chore, locale, test"
+    echo "See: https://www.conventionalcommits.org/en/v1.0.0/\n"
+    exit 1
+fi

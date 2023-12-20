@@ -2,11 +2,24 @@
   "name": "elysia-trpc",
   "version": "1.0.50",
   "scripts": {
+    "export": "bunx --bun tsc --declaration --strict  --pretty src/trpc/type.ts --out trpc-export-type/type.d.ts --emitDeclarationOnly",
+    "db:push": "prisma db push",
+    "db:genc": "prisma generate",
+    "db:seed": "prisma db seed --preview-feature",
+    "db:studio": "prisma studio",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@elysiajs/cors": "^0.7.2",
+    "@elysiajs/trpc": "^0.7.0",
+    "@prisma/client": "^5.7.0",
+    "@trpc/server": "^10.44.1",
+    "elysia": "^0.7.30",
+    "husky": "^8.0.3",
+    "prisma": "^5.7.0",
+    "superjson": "^2.2.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "bun-types": "latest"
